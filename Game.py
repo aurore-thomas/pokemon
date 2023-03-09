@@ -43,7 +43,7 @@ class Game:
                     self.game = ChoiceMenu()
                     self.game.run()
                 elif event.type == pg.MOUSEBUTTONDOWN:
-                    if self.click or ():
+                    if self.click:
                         self.game = ChoiceMenu()
                         self.game.run()
 

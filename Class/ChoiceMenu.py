@@ -1,5 +1,6 @@
 from Class.Settings import *
 from Class.Buttons import Button
+from Class.PlayMenu import PlayMenu
 
 class ChoiceMenu:
     def __init__(self):
@@ -43,11 +44,17 @@ class ChoiceMenu:
 
     def events(self):
         self.mouse_pos = pg.mouse.get_pos()
+        self.click = pg.mouse.get_pressed()
 
         for event in pg.event.get():
                 if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                     pg.quit()
                     sys.exit()
+                elif event.type == pg.MOUSEBUTTONDOWN:
+                    if self.click:
+                        self.game = PlayMenu()
+                        self.game.run()
+
     
     def run(self):
         while self.running:
